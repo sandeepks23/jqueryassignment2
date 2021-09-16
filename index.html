@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function loadDoc() {
+                var html_data = "";
+                $.get("https://jsonplaceholder.typicode.com/posts", function (datas, status) {
+                    for (data of datas) {
+                        // html_data+= `<li>id:${data.id}
+                        //     title:${data.title}
+                        //     body:${data.body}</li>`;
+                        html_data+=`<tr><td>${data.id}</td><td>${data.title}</td><td>${data.body}</td></tr>`
+                        // $("ol").html(html_data);
+                        $("#result").html(html_data);
+                    }
+
+                })
+            }
+            loadDoc();
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">Ajax Jquery</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>BODY</th>
+        </tr>
+        <tbody id="result">
+
+        </tbody>
+    </table>
+    <ol type="I">
+
+    </ol>
+
+</body>
+
+</html>
